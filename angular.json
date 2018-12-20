@@ -22,7 +22,20 @@
                         "styles": [
                             "src/material-theme.scss"
                         ]
-                    }
+                    },
+                    "configurations": {
+                        "production": {
+                          "optimization": true,
+                          "outputHashing": "all",
+                          "sourceMap": false,
+                          "extractCss": true,
+                          "namedChunks": false,
+                          "aot": true,
+                          "extractLicenses": true,
+                          "vendorChunk": false,
+                          "buildOptimizer": true
+                        }
+                      }
                 },
                 "serve": {
                     "builder": "@angular-devkit/build-angular:dev-server",
