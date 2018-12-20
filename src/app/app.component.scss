@@ -11,14 +11,17 @@
     width: 60px;
     height: calc(100% + 100px);
     min-width: 60px;
-    max-width: 700px;
+    max-width: 800px;
     box-shadow: 0 0 5px #999, -13px 0 41px 0px black;
     z-index: 999;
     .main-menu-content {
       flex: 1;
       overflow-y: scroll;
-      .lorem-ipsum-card {
-        margin: 10px;
+      .main-menu-content-body {
+        display: none;
+        .lorem-ipsum-card {
+          margin: 10px;
+        }
       }
     }
     .main-menu-buttons {

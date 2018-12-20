@@ -1,16 +1,22 @@
 <div [@toggleMainMenu]="animationState"
      class="main-menu">
-    <div [class.main-menu-hidden]="animationState === 'hide'"
+    <div [class.main-menu-hidden]="false && animationState === 'hide'"
          class="main-menu-content">
+
         <mat-toolbar color="accent"
                      class="main-menu-toolbar">
             <span>AAA</span>
         </mat-toolbar>
 
-        <mat-card *ngFor="let item of mediumContent"
-                  class="lorem-ipsum-card">
-            {{item}}
-        </mat-card>
+        <div [@toggleMainMenuContainerBody]="animationState"
+        class="main-menu-content-body">
+
+            <mat-card *ngFor="let item of mediumContent"
+                      class="lorem-ipsum-card">
+                {{item}}
+            </mat-card>
+
+        </div>
     </div>
     <div class="main-menu-buttons">
         <button (click)="expand()"

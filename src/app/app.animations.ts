@@ -4,10 +4,10 @@ import { animate, AnimationTriggerMetadata, keyframes, state, style, transition,
  * Тайминги у появления и скрытия одинаковы.
  * @type {string}
  */
-const animationTime: number = 260;
+const animationTime: number = 180;
 
-export const toggleMainMenu: AnimationTriggerMetadata =
-    trigger(
+export const toggleMainMenu: AnimationTriggerMetadata
+    = trigger(
         'toggleMainMenu',
         [
             state('show', style({
@@ -18,12 +18,13 @@ export const toggleMainMenu: AnimationTriggerMetadata =
             state('hide', style({
                 width: '60px'
             })),
-            transition('hide <=> show', animate(`${animationTime}ms ease-in`)),
+            transition('hide => show', animate(`${animationTime}ms 50ms`)),
+            transition('show => hide', animate(`${animationTime * 1.5}ms`))
         ]
     );
 
-export const toggleMainMenuMask: AnimationTriggerMetadata =
-    trigger(
+export const toggleMainMenuMask: AnimationTriggerMetadata
+    = trigger(
         'toggleMainMenuMask',
         [
             state('show', style({
@@ -38,8 +39,8 @@ export const toggleMainMenuMask: AnimationTriggerMetadata =
         ]
     );
 
-export const toggleMainMenuBlurMainContainer: AnimationTriggerMetadata =
-    trigger(
+export const toggleMainMenuBlurMainContainer: AnimationTriggerMetadata
+    = trigger(
         'toggleMainMenuBlurMainContainer',
         [
             state('show', style({
@@ -48,6 +49,22 @@ export const toggleMainMenuBlurMainContainer: AnimationTriggerMetadata =
             state('hide', style({
                 filter: 'none'
             })),
-            transition('hide <=> show', animate(`0ms ease-in`)),
+            transition('hide => show', animate(`10ms ${animationTime + 100}ms`)),
+            transition('show => hide', animate(`0ms`)),
+        ]
+    );
+
+export const toggleMainMenuContainerBody: AnimationTriggerMetadata
+    = trigger(
+        'toggleMainMenuContainerBody',
+        [
+            state('show', style({
+                display: 'block'
+            })),
+            state('hide', style({
+                display: 'none'
+            })),
+            transition('hide => show', animate(`10ms ${animationTime + 100}ms`)),
+            transition('show => hide', animate(`0ms`)),
         ]
     );
