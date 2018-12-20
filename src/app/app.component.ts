@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { 
-    toggleMainMenu, 
-    toggleMainMenuMask, 
+import {
+    toggleMainMenu,
+    toggleMainMenuMask,
     toggleMainMenuBlurMainContainer,
-    toggleMainMenuContainerBody 
+    toggleMainMenuContainerBody
 } from './app.animations';
 
 @Component({
@@ -19,6 +19,8 @@ import {
 })
 export class AppComponent implements OnInit {
 
+    private _mainMenuMaxWidth: number = 700;
+
     public title: string = 'Angular Material!!!';
 
     public animationState: string = 'hide';
@@ -26,6 +28,8 @@ export class AppComponent implements OnInit {
     public mediumContent: string[];
 
     public longContent: string[];
+
+
 
     public ngOnInit(): void {
         this.longContent = Array
@@ -48,6 +52,16 @@ export class AppComponent implements OnInit {
 
     public expand(): void {
         this.animationState = this.animationState === 'show' ? 'hide' : 'show';
+    }
+
+    public toggleMainMenuStart(e: any): void {
+        const actualWidth: number = window.innerWidth * .8 > this._mainMenuMaxWidth
+            ? this._mainMenuMaxWidth
+            : window.innerWidth * .8;
+        if (e.fromState === 'hide') {
+            e.element.style.width = `${actualWidth}px`;
+            e.element.style.margin = `0 -${actualWidth - 60}px`;
+        }
     }
 
 }

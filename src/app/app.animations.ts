@@ -4,22 +4,24 @@ import { animate, AnimationTriggerMetadata, keyframes, state, style, transition,
  * Тайминги у появления и скрытия одинаковы.
  * @type {string}
  */
-const animationTime: number = 180;
+const animationTime: number = 200;
 
 export const toggleMainMenu: AnimationTriggerMetadata
     = trigger(
         'toggleMainMenu',
         [
             state('show', style({
-                width: '70%',
-                minWidth: '180px',
-                maxWidth: '600px'
+                transform: "translateX(calc(100% - 60px))"
+                // width: '70%',
+                // minWidth: '180px',
+                // maxWidth: '600px'
             })),
             state('hide', style({
-                width: '60px'
+                transform: "translateX(0px)"
+                // width: '60px'
             })),
-            transition('hide => show', animate(`${animationTime}ms 50ms`)),
-            transition('show => hide', animate(`${animationTime * 1.5}ms`))
+            transition('hide => show', animate(`${animationTime}ms 50ms ease`)),
+            transition('show => hide', animate(`${animationTime * 1.4}ms ease`))
         ]
     );
 
@@ -44,13 +46,13 @@ export const toggleMainMenuBlurMainContainer: AnimationTriggerMetadata
         'toggleMainMenuBlurMainContainer',
         [
             state('show', style({
-                filter: 'blur(3px)'
+                // filter: 'blur(3px)'
             })),
             state('hide', style({
-                filter: 'none'
+                // filter: 'none'
             })),
-            transition('hide => show', animate(`10ms ${animationTime + 100}ms`)),
-            transition('show => hide', animate(`0ms`)),
+            // transition('hide => show', animate(`10ms ${animationTime + 100}ms`)),
+            // transition('show => hide', animate(`0ms 300ms`)),
         ]
     );
 
