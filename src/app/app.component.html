@@ -1,60 +1,102 @@
-<mat-toolbar color="primary">
-    <span>Welcome to {{ title }}!</span>
-</mat-toolbar>
-<mat-toolbar>
-    <span>Buttons</span>
-</mat-toolbar>
+<div [@toggleMainMenu]="animationState"
+     class="main-menu">
+    <div [class.main-menu-hidden]="animationState === 'hide'"
+         class="main-menu-content">
+        <mat-toolbar color="accent"
+                     class="main-menu-toolbar">
+            <span>AAA</span>
+        </mat-toolbar>
 
-<mat-tab-group>
-    <mat-tab label="Raised Buttons">
-
-        <mat-card>
-            <div class="button-row">
-                <button mat-raised-button>Basic</button>
-                <button mat-raised-button
-                        color="primary">Primary</button>
-                <button mat-raised-button
-                        color="accent">Accent</button>
-                <button mat-raised-button
-                        color="warn">Warn</button>
-                <button mat-raised-button
-                        disabled>Disabled</button>
-                <a mat-raised-button
-                   routerLink=".">Link</a>
-            </div>
+        <mat-card *ngFor="let item of mediumContent"
+                  class="lorem-ipsum-card">
+            {{item}}
         </mat-card>
+    </div>
+    <div class="main-menu-buttons">
+        <button (click)="expand()"
+                mat-button>
+            GO
+        </button>
+        <button (click)="expand()"
+                mat-button>
+            GO2
+        </button>
+    </div>
 
-    </mat-tab>
-
-    <mat-tab label="Basic Buttons">
-
-        <mat-card>
-            <div class="button-row">
-                <button mat-button>Basic</button>
-                <button mat-button
-                        color="primary">Primary</button>
-                <button mat-button
-                        color="accent">Accent</button>
-                <button mat-button
-                        color="warn">Warn</button>
-                <button mat-button
-                        disabled>Disabled</button>
-                <a mat-button
-                   routerLink=".">Link</a>
-            </div>
-        </mat-card>
-
-    </mat-tab>
-</mat-tab-group>
+</div>
+<div [@toggleMainMenuMask]="animationState"
+     (click)="expand()"
+     class="main-menu-mask">
+</div>
 
 
-<mat-toolbar>
-    <span>Form Fields</span>
-</mat-toolbar>
+<div [@toggleMainMenuBlurMainContainer]="animationState"
+     class="main-container">
+    <mat-toolbar color="primary"
+                 class="main-container-toolbar">
+        <span>Welcome to {{ title }}!</span>
+    </mat-toolbar>
+    <mat-toolbar>
+        <span>Buttons</span>
+    </mat-toolbar>
 
-<mat-form-field class="example-full-width">
-    <input [attr.name]="'asd'"
-           matInput
-           placeholder="Favorite food"
-           value="Sushi">
-</mat-form-field>
+    <mat-tab-group>
+        <mat-tab label="Raised Buttons">
+
+            <mat-card>
+                <div class="button-row">
+                    <button mat-raised-button>Basic</button>
+                    <button mat-raised-button
+                            color="primary">Primary</button>
+                    <button mat-raised-button
+                            color="accent">Accent</button>
+                    <button mat-raised-button
+                            color="warn">Warn</button>
+                    <button mat-raised-button
+                            disabled>Disabled</button>
+                    <a mat-raised-button
+                       routerLink=".">Link</a>
+                </div>
+            </mat-card>
+
+        </mat-tab>
+
+        <mat-tab label="Basic Buttons">
+
+            <mat-card>
+                <div class="button-row">
+                    <button mat-button>Basic</button>
+                    <button mat-button
+                            color="primary">Primary</button>
+                    <button mat-button
+                            color="accent">Accent</button>
+                    <button mat-button
+                            color="warn">Warn</button>
+                    <button mat-button
+                            disabled>Disabled</button>
+                    <a mat-button
+                       routerLink=".">Link</a>
+                </div>
+            </mat-card>
+
+        </mat-tab>
+    </mat-tab-group>
+
+
+    <mat-toolbar>
+        <span>Form Fields</span>
+    </mat-toolbar>
+
+    <mat-form-field class="example-full-width">
+        <input [attr.name]="'asd'"
+               matInput
+               placeholder="Favorite food"
+               value="Sushi">
+    </mat-form-field>
+
+
+    <mat-card *ngFor="let item of longContent"
+              class="lorem-ipsum-card">
+        {{item}}
+    </mat-card>
+</div>
