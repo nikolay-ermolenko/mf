@@ -11,14 +11,14 @@ export const toggleMainMenu: AnimationTriggerMetadata
         'toggleMainMenu',
         [
             state('show', style({
-                transform: "translateX(calc(100% - 60px))"
-                // width: '70%',
-                // minWidth: '180px',
-                // maxWidth: '600px'
+                // transform: "translateX(calc(100% - 60px))"
+                width: '70%',
+                minWidth: '180px',
+                maxWidth: '600px'
             })),
             state('hide', style({
-                transform: "translateX(0px)"
-                // width: '60px'
+                // transform: "translateX(0px)"
+                width: '60px'
             })),
             transition('hide => show', animate(`${animationTime}ms 50ms ease`)),
             transition('show => hide', animate(`${animationTime * 1.4}ms ease`))

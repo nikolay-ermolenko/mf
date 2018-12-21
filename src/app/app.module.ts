@@ -6,10 +6,13 @@ import {
     MatButtonModule,
     MatToolbarModule,
     MatTabsModule,
-    MatInputModule
+    MatInputModule,
+    MatBadgeModule,
+    MatDividerModule
 } from '@angular/material';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
+import { IconMenuComponent, IconListComponent } from './entities/icons';
 
 @NgModule({
     imports: [
@@ -20,7 +23,9 @@ import { FormsModule } from '@angular/forms';
         MatToolbarModule,
         MatButtonModule,
         MatTabsModule,
-        MatInputModule
+        MatInputModule,
+        MatBadgeModule,
+        MatDividerModule
     ],
     providers: [
         {
@@ -28,7 +33,11 @@ import { FormsModule } from '@angular/forms';
             useValue: 'ru'
         }
     ],
-    declarations: [AppComponent],
+    declarations: [
+        AppComponent,
+        IconMenuComponent,
+        IconListComponent
+    ],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

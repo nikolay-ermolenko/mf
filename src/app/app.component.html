@@ -6,27 +6,80 @@
 
         <mat-toolbar color="accent"
                      class="main-menu-toolbar">
-            <span>AAA</span>
+
+            <span>
+                <i class="material-icons">
+                    face
+                </i>
+                <span>
+                    AAA xfgdfg ndfgd
+                </span>
+            </span>
         </mat-toolbar>
 
         <div [@toggleMainMenuContainerBody]="animationState"
-        class="main-menu-content-body">
+             class="main-menu-content-body">
 
             <mat-card *ngFor="let item of mediumContent"
                       class="lorem-ipsum-card">
+                <app-icon-menu>
+
+                </app-icon-menu>
                 {{item}}
+                <img src="assets/images/test/angular.png">
             </mat-card>
 
         </div>
     </div>
     <div class="main-menu-buttons">
         <button (click)="expand()"
-                mat-button>
-            GO
+                mat-button
+                class="main-menu-button">
+            <i class="material-icons">
+                menu
+            </i>
+        </button>
+        <mat-divider>
+
+        </mat-divider>
+        <button (click)="expand()"
+                mat-button
+                class="main-menu-button">
+            <i class="material-icons">person</i>
+        </button>
+
+        <button (click)="expand()"
+                mat-button
+                class="main-menu-button">
+            <i class="material-icons">star_border</i>
         </button>
         <button (click)="expand()"
-                mat-button>
-            GO2
+                mat-button
+                class="main-menu-button">
+            <i matBadge="7"
+               matBadgeColor="warn"
+               class="material-icons">chat_bubble_outline</i>
+        </button>
+
+        <div class="divider">
+
+        </div>
+        <button (click)="expand()"
+                mat-button
+                class="main-menu-button">
+            <i matBadge="4"
+               matBadgeColor="warn"
+               class="material-icons">
+                notifications_none
+            </i>
+        </button>
+        <mat-divider>
+
+        </mat-divider>
+        <button (click)="expand()"
+                mat-button
+                class="main-menu-button">
+            <i class="material-icons">settings</i>
         </button>
     </div>
 
@@ -43,7 +96,9 @@
         <span>Welcome to {{ title }}!</span>
     </mat-toolbar>
     <mat-toolbar>
-        <span>Buttons</span>
+        <span>
+            Buttons
+        </span>
     </mat-toolbar>
 
     <mat-tab-group>
@@ -51,17 +106,29 @@
 
             <mat-card>
                 <div class="button-row">
-                    <button mat-raised-button>Basic</button>
+                    <button mat-raised-button>
+                        Basic
+                    </button>
                     <button mat-raised-button
-                            color="primary">Primary</button>
+                            color="primary">
+                        Primary
+                    </button>
                     <button mat-raised-button
-                            color="accent">Accent</button>
+                            color="accent">
+                        Accent
+                    </button>
                     <button mat-raised-button
-                            color="warn">Warn</button>
+                            color="warn">
+                        Warn
+                    </button>
                     <button mat-raised-button
-                            disabled>Disabled</button>
+                            disabled>
+                        Disabled
+                    </button>
                     <a mat-raised-button
-                       routerLink=".">Link</a>
+                       routerLink=".">
+                        Link
+                    </a>
                 </div>
             </mat-card>
 
@@ -100,9 +167,15 @@
                value="Sushi">
     </mat-form-field>
 
+    <i class="material-icons">face</i>
+
+
+
+    <!-- <mat-icon svgIcon="app-icon-list"></mat-icon> -->
 
     <mat-card *ngFor="let item of longContent"
               class="lorem-ipsum-card">
+        <app-icon-list></app-icon-list>
         {{item}}
     </mat-card>
 </div>

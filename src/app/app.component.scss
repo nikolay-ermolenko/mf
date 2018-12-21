@@ -8,8 +8,8 @@
     top: 0;
     left: 0;
     background: #eee;
-    width: 500px;
-    margin: 0 -440px;
+    width: 80%; // width: 500px;
+    // margin: 0 -440px;
     height: calc(100% + 100px);
     min-width: 60px;
     max-width: 800px;
@@ -18,6 +18,7 @@
     .main-menu-content {
       flex: 1;
       overflow-y: scroll;
+      margin-bottom: 100px;
       .main-menu-content-body {
         display: none;
         .lorem-ipsum-card {
@@ -27,6 +28,16 @@
     }
     .main-menu-buttons {
       width: 60px;
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 100px;
+      .divider {
+        flex: 1;
+      }
+      .main-menu-button {
+        width: 60px;
+        min-width: 60px;
+      }
     }
   }
   .main-menu-mask {

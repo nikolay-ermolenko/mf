@@ -59,9 +59,12 @@ export class AppComponent implements OnInit {
             ? this._mainMenuMaxWidth
             : window.innerWidth * .8;
         if (e.fromState === 'hide') {
-            e.element.style.width = `${actualWidth}px`;
-            e.element.style.margin = `0 -${actualWidth - 60}px`;
+            // e.element.style.width = `${actualWidth}px`;
+            // e.element.style.margin = `0 -${actualWidth - 60}px`;
         }
+
+        // https://www.flaticon.com/packs/interface-icon-assets
+        // https://www.flaticon.com/packs/multimedia-collection
     }
 
 }
