@@ -19,23 +19,26 @@
                         "main": "src/main.ts",
                         "polyfills": "src/polyfills.ts",
                         "tsConfig": "tsconfig.json",
+                        "assets": [
+                            "src/assets"
+                        ],
                         "styles": [
                             "src/material-theme.scss"
                         ]
                     },
                     "configurations": {
                         "production": {
-                          "optimization": true,
-                          "outputHashing": "all",
-                          "sourceMap": false,
-                          "extractCss": true,
-                          "namedChunks": false,
-                          "aot": true,
-                          "extractLicenses": true,
-                          "vendorChunk": false,
-                          "buildOptimizer": true
+                            "optimization": true,
+                            "outputHashing": "all",
+                            "sourceMap": false,
+                            "extractCss": true,
+                            "namedChunks": false,
+                            "aot": true,
+                            "extractLicenses": true,
+                            "vendorChunk": false,
+                            "buildOptimizer": true
                         }
-                      }
+                    }
                 },
                 "serve": {
                     "builder": "@angular-devkit/build-angular:dev-server",

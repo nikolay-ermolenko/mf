@@ -11,8 +11,15 @@
     <meta name="description" content="Пример работы Angular Material + Animation" />
     <meta name="keywords" content="angular,material,typescript" />
     <title>Angular</title>
-    <base href=".">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script>
+        var base = document.createElement('base');
+        var path = window.location.pathname;
+
+        base.setAttribute('href', path.charAt(path.length - 1) === '/' ? path : path + '/');
+
+        document.head.appendChild(base);
+    </script>
 </head>
 
 <body>
