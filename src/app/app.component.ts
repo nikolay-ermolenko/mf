@@ -67,4 +67,15 @@ export class AppComponent implements OnInit {
         // https://www.flaticon.com/packs/multimedia-collection
     }
 
+    /**
+     * 
+     * @param e 
+     */
+    public toggleMainMenuDone(e: any): void {
+        window.document.getElementsByTagName('body')[0].style.overflowY
+            = e.toState === 'show'
+                ? 'hidden'
+                : 'scroll';
+    }
+
 }

@@ -19,6 +19,12 @@
       flex: 1;
       overflow-y: scroll;
       margin-bottom: 100px;
+      .main-menu-toolbar {
+        position: sticky;
+        top: 0;
+        z-index: 1;
+        height: 64px;
+      }
       .main-menu-content-body {
         display: none;
         .lorem-ipsum-card {
@@ -51,12 +57,13 @@
     opacity: .4;
   }
   .main-container {
-    margin-left: 60px;
-    margin-top: 64px;
+    margin-left: 60px; // margin-top: 64px;
     .main-container-toolbar {
-      z-index: 9;
-      position: fixed;
+      z-index: 2;
+      position: sticky;
       top: 0;
+      left: 0;
+      height: 64px;
     }
     .lorem-ipsum-card {
       margin: 20px;

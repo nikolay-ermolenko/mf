@@ -1,9 +1,10 @@
 <div [@toggleMainMenu]="animationState"
      (@toggleMainMenu.start)="toggleMainMenuStart($event)"
+     (@toggleMainMenu.done)="toggleMainMenuDone($event)"
      class="main-menu">
     <div [class.main-menu-hidden]="false && animationState === 'hide'"
          class="main-menu-content">
-
+         
         <mat-toolbar color="accent"
                      class="main-menu-toolbar">
 
@@ -25,7 +26,9 @@
                 <app-icon-menu>
 
                 </app-icon-menu>
-                {{item}}
+                <span>
+                    {{item}}
+                </span>
                 <img src="assets/images/test/angular.png">
             </mat-card>
 
