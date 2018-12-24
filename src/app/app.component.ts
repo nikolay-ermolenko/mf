@@ -21,6 +21,10 @@ export class AppComponent implements OnInit {
 
     private _mainMenuMaxWidth: number = 700;
 
+    private _currentMenu: string;
+
+    public currentMenuIndex: number = 0;
+
     public title: string = 'Angular Material!!!';
 
     public animationState: string = 'hide';
@@ -50,18 +54,29 @@ export class AppComponent implements OnInit {
 
     }
 
-    public expand(): void {
-        this.animationState = this.animationState === 'show' ? 'hide' : 'show';
+    public expand(item: string): void {
+        if(!item || item === this._currentMenu) {
+            this._currentMenu = null;
+            this.animationState = 'hide';
+        } else {
+            this._currentMenu = item;
+            this.animationState = 'show'
+            this.currentMenuIndex = ['main', 'user'].indexOf(item);
+        }
+        // console.log(66, item);
+        
+
+        // this.animationState = this.animationState === 'show' ? 'hide' : 'show';
     }
 
     public toggleMainMenuStart(e: any): void {
-        const actualWidth: number = window.innerWidth * .8 > this._mainMenuMaxWidth
-            ? this._mainMenuMaxWidth
-            : window.innerWidth * .8;
-        if (e.fromState === 'hide') {
-            // e.element.style.width = `${actualWidth}px`;
-            // e.element.style.margin = `0 -${actualWidth - 60}px`;
-        }
+        // const actualWidth: number = window.innerWidth * .8 > this._mainMenuMaxWidth
+        //     ? this._mainMenuMaxWidth
+        //     : window.innerWidth * .8;
+        // if (e.fromState === 'hide') {
+        //     // e.element.style.width = `${actualWidth}px`;
+        //     // e.element.style.margin = `0 -${actualWidth - 60}px`;
+        // }
 
         // https://www.flaticon.com/packs/interface-icon-assets
         // https://www.flaticon.com/packs/multimedia-collection

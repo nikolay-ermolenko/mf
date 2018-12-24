@@ -12,7 +12,7 @@ export const toggleMainMenu: AnimationTriggerMetadata
         [
             state('show', style({
                 // transform: "translateX(calc(100% - 60px))"
-                width: '70%',
+                width: '80%',
                 minWidth: '180px',
                 maxWidth: '600px'
             })),

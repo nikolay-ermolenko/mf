@@ -48,10 +48,16 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-.mat-button {
+.mat-button, .mat-tab-label-content {
   .fa,
   .far,
   .fas {
     font-size: 20px;
+  }
+}
+
+.main-menu {
+  .mat-tab-label {
+    display: none !important;
   }
 }

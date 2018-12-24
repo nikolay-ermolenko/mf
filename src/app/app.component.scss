@@ -17,7 +17,7 @@
     z-index: 999;
     .main-menu-content {
       flex: 1;
-      overflow-y: scroll;
+      overflow-y: auto;
       margin-bottom: 100px;
       .main-menu-toolbar {
         position: sticky;
@@ -27,6 +27,12 @@
       }
       .main-menu-content-body {
         display: none;
+        .main-mat-tab-group {
+          .main-no-tab-label,
+          .mat-tab-label {
+            display: none;
+          }
+        }
         .lorem-ipsum-card {
           margin: 10px;
         }

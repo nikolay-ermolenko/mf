@@ -5,57 +5,82 @@
     <div [class.main-menu-hidden]="false && animationState === 'hide'"
          class="main-menu-content">
 
-        <mat-toolbar color="accent"
+        <!-- <mat-toolbar color="accent"
                      class="main-menu-toolbar">
 
             <span>
-                <i class="far fa-meh"></i>
+                <i class="fa fa-th"></i>
                 <span>
                     Главное меню
                 </span>
             </span>
-        </mat-toolbar>
+        </mat-toolbar> -->
 
         <div [@toggleMainMenuContainerBody]="animationState"
              class="main-menu-content-body">
 
-            <mat-card *ngFor="let item of mediumContent"
-                      class="lorem-ipsum-card">
-                <app-icon-menu>
 
-                </app-icon-menu>
-                <span>
-                    {{item}}
-                </span>
-                <img src="assets/images/test/angular.png">
-            </mat-card>
+            <mat-tab-group backgroundColor="accent"
+                           [dynamicHeight]="false"
+                           [selectedIndex]="currentMenuIndex"
+                           animationDuration="260ms"
+                           class="main-mat-tab-group">
+
+
+                <mat-tab>
+                    <ng-template mat-tab-label
+                                 class="main-no-tab-label">
+                    </ng-template>
+                    Lorem
+                </mat-tab>
+                <mat-tab>
+                    <ng-template mat-tab-label
+                                 class="main-no-tab-label">
+                    </ng-template>
+
+
+                    <mat-card *ngFor="let item of mediumContent"
+                              class="lorem-ipsum-card">
+                        <app-icon-menu>
+
+                        </app-icon-menu>
+                        <span>
+                            {{item}}
+                        </span>
+                        <img src="assets/images/test/angular.png">
+                    </mat-card>
+                </mat-tab>
+            </mat-tab-group>
+
+
+
 
         </div>
     </div>
     <div class="main-menu-buttons">
-        <button (click)="expand()"
+        <button (click)="expand('main')"
                 mat-button
                 class="main-menu-button">
-            <i class="fa fa-bars">                
+            <i class="fa fa-bars">
             </i>
         </button>
         <mat-divider>
 
         </mat-divider>
-        <button (click)="expand()"
+        <button (click)="expand('user')"
                 mat-button
                 class="main-menu-button">
-                <i class="fa fa-user">
-                </i>
+            <i class="fa fa-user">
+            </i>
         </button>
 
-        <button (click)="expand()"
+        <button (click)="expand('starred')"
                 mat-button
                 class="main-menu-button">
-                <i class="far fa-star">
-                </i>
+            <i class="far fa-star">
+            </i>
         </button>
-        <button (click)="expand()"
+        <button (click)="expand('messages')"
                 mat-button
                 class="main-menu-button">
             <i matBadge="7"
@@ -67,7 +92,7 @@
         <div class="divider">
 
         </div>
-        <button (click)="expand()"
+        <button (click)="expand('warnings')"
                 mat-button
                 class="main-menu-button">
             <i matBadge="4"
@@ -78,7 +103,7 @@
         <mat-divider>
 
         </mat-divider>
-        <button (click)="expand()"
+        <button (click)="expand('settings')"
                 mat-button
                 class="main-menu-button">
             <i class="fa fa-cog">
