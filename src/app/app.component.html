@@ -4,16 +4,14 @@
      class="main-menu">
     <div [class.main-menu-hidden]="false && animationState === 'hide'"
          class="main-menu-content">
-         
+
         <mat-toolbar color="accent"
                      class="main-menu-toolbar">
 
             <span>
-                <i class="material-icons">
-                    face
-                </i>
+                <i class="far fa-meh"></i>
                 <span>
-                    AAA xfgdfg ndfgd
+                    Главное меню
                 </span>
             </span>
         </mat-toolbar>
@@ -38,8 +36,7 @@
         <button (click)="expand()"
                 mat-button
                 class="main-menu-button">
-            <i class="material-icons">
-                menu
+            <i class="fa fa-bars">                
             </i>
         </button>
         <mat-divider>
@@ -48,20 +45,23 @@
         <button (click)="expand()"
                 mat-button
                 class="main-menu-button">
-            <i class="material-icons">person</i>
+                <i class="fa fa-user">
+                </i>
         </button>
 
         <button (click)="expand()"
                 mat-button
                 class="main-menu-button">
-            <i class="material-icons">star_border</i>
+                <i class="far fa-star">
+                </i>
         </button>
         <button (click)="expand()"
                 mat-button
                 class="main-menu-button">
             <i matBadge="7"
                matBadgeColor="warn"
-               class="material-icons">chat_bubble_outline</i>
+               class="far fa-comment">
+            </i>
         </button>
 
         <div class="divider">
@@ -72,8 +72,7 @@
                 class="main-menu-button">
             <i matBadge="4"
                matBadgeColor="warn"
-               class="material-icons">
-                notifications_none
+               class="far fa-bell">
             </i>
         </button>
         <mat-divider>
@@ -82,7 +81,8 @@
         <button (click)="expand()"
                 mat-button
                 class="main-menu-button">
-            <i class="material-icons">settings</i>
+            <i class="fa fa-cog">
+            </i>
         </button>
     </div>
 
@@ -170,7 +170,8 @@
                value="Sushi">
     </mat-form-field>
 
-    <i class="material-icons">face</i>
+    <i class="fa fa-arrows-alt">
+    </i>
 
 
 
