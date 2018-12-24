@@ -48,7 +48,8 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-.mat-button, .mat-tab-label-content {
+.mat-button,
+.mat-tab-label-content {
   .fa,
   .far,
   .fas {
@@ -57,6 +58,9 @@ body {
 }
 
 .main-menu {
+  .mat-tab-body-wrapper {
+    flex: 1;
+  }
   .mat-tab-label {
     display: none !important;
   }

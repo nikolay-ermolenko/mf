@@ -13,6 +13,8 @@ import {
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { IconMenuComponent, IconListComponent } from './entities/icons';
+import { ScrollingModule } from '@angular/cdk/scrolling';
+import {ScrollingModule as ExperimentalScrollingModule} from '@angular/cdk-experimental/scrolling';
 
 @NgModule({
     imports: [
@@ -25,7 +27,9 @@ import { IconMenuComponent, IconListComponent } from './entities/icons';
         MatTabsModule,
         MatInputModule,
         MatBadgeModule,
-        MatDividerModule
+        MatDividerModule,
+        ScrollingModule,
+        ExperimentalScrollingModule
     ],
     providers: [
         {

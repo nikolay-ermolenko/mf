@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import {
     toggleMainMenu,
     toggleMainMenuMask,
@@ -15,7 +15,8 @@ import {
         toggleMainMenuMask,
         toggleMainMenuBlurMainContainer,
         toggleMainMenuContainerBody
-    ]
+    ],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppComponent implements OnInit {
 
@@ -33,35 +34,55 @@ export class AppComponent implements OnInit {
 
     public longContent: string[];
 
+    public objContent: any[];
+
 
 
     public ngOnInit(): void {
+        this.objContent = Array
+        .from({ length: 80 }, (v, k) => {            
+            return {
+                id: k + 1,
+                text: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+                voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+                cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. 
+                ${Array.from({ length: +(Math.random()*100).toFixed()}, () => `RTYRYRY `).toString()}`,
+                imgWidth: 100 + +(Math.random()*100).toFixed(),
+                imgHeight: 50 + +(Math.random()*100).toFixed()
+            };
+        });
+
+
         this.longContent = Array
-            .from({ length: 20 }, () =>
+            .from({ length: 200 }, () =>
                 `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
          labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
          laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
          voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-         cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`);
+         cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. 
+         ${Array.from({ length: +(Math.random()*100).toFixed()}, () => `RTYRYRY `).toString()}`);
 
         this.mediumContent = Array
-            .from({ length: 6 }, () =>
+            .from({ length: 77 }, () =>
                 `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
       labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
       laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
       voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-      cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`);
+      cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. 
+      ${Array.from({ length: +(Math.random()*100).toFixed()}, () => `QW `).toString()}`);
 
     }
 
     public expand(item: string): void {
-        if(!item || item === this._currentMenu) {
+        if(item === null || item === this._currentMenu) {
             this._currentMenu = null;
             this.animationState = 'hide';
         } else {
             this._currentMenu = item;
             this.animationState = 'show'
-            this.currentMenuIndex = ['main', 'user'].indexOf(item);
+            this.currentMenuIndex = ['main', 'user', 'starred'].indexOf(item);
         }
         // console.log(66, item);
         

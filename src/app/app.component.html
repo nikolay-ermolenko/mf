@@ -5,17 +5,6 @@
     <div [class.main-menu-hidden]="false && animationState === 'hide'"
          class="main-menu-content">
 
-        <!-- <mat-toolbar color="accent"
-                     class="main-menu-toolbar">
-
-            <span>
-                <i class="fa fa-th"></i>
-                <span>
-                    Главное меню
-                </span>
-            </span>
-        </mat-toolbar> -->
-
         <div [@toggleMainMenuContainerBody]="animationState"
              class="main-menu-content-body">
 
@@ -23,9 +12,8 @@
             <mat-tab-group backgroundColor="accent"
                            [dynamicHeight]="false"
                            [selectedIndex]="currentMenuIndex"
-                           animationDuration="260ms"
+                           animationDuration="210ms"
                            class="main-mat-tab-group">
-
 
                 <mat-tab>
                     <ng-template mat-tab-label
@@ -33,6 +21,7 @@
                     </ng-template>
                     Lorem
                 </mat-tab>
+
                 <mat-tab>
                     <ng-template mat-tab-label
                                  class="main-no-tab-label">
@@ -50,6 +39,32 @@
                         <img src="assets/images/test/angular.png">
                     </mat-card>
                 </mat-tab>
+
+                <mat-tab>
+                    <ng-template mat-tab-label
+                                 class="main-no-tab-label">
+                    </ng-template>
+
+                    <cdk-virtual-scroll-viewport autosize
+                                                 class="example-viewport">
+                        <!-- <div *cdkVirtualFor="let item of longContent"> -->
+                        <mat-card *cdkVirtualFor="let item of objContent"
+                                  class="lorem-ipsum-card">
+                            <h3>{{item.id}}</h3>
+                            <app-icon-menu>
+
+                            </app-icon-menu>
+                            <span>
+                                {{item.text}}
+                            </span>
+                            <img src="https://picsum.photos/{{item.imgWidth}}/{{item.imgHeight}}"
+                                 [width]="item.imgWidth"
+                                 [height]="item.imgHeight">
+                        </mat-card>
+                        <!-- </div> -->
+                    </cdk-virtual-scroll-viewport>
+                </mat-tab>
+
             </mat-tab-group>
 
 
@@ -95,7 +110,7 @@
         <button (click)="expand('warnings')"
                 mat-button
                 class="main-menu-button">
-            <i matBadge="4"
+            <i matBadge="99+"
                matBadgeColor="warn"
                class="far fa-bell">
             </i>
@@ -113,7 +128,7 @@
 
 </div>
 <div [@toggleMainMenuMask]="animationState"
-     (click)="expand()"
+     (click)="expand(null)"
      class="main-menu-mask">
 </div>
 
