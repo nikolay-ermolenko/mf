@@ -1,225 +1,78 @@
-<div [@toggleMainMenu]="animationState"
-     (@toggleMainMenu.start)="toggleMainMenuStart($event)"
-     (@toggleMainMenu.done)="toggleMainMenuDone($event)"
-     class="main-menu">
-    <div [class.main-menu-hidden]="false && animationState === 'hide'"
-         class="main-menu-content">
-
-        <div [@toggleMainMenuContainerBody]="animationState"
-             class="main-menu-content-body">
-
-
-            <mat-tab-group backgroundColor="accent"
-                           [dynamicHeight]="false"
-                           [selectedIndex]="currentMenuIndex"
-                           animationDuration="210ms"
-                           class="main-mat-tab-group">
-
-                <mat-tab>
-                    <ng-template mat-tab-label
-                                 class="main-no-tab-label">
-                    </ng-template>
-                    Lorem
-                </mat-tab>
-
-                <mat-tab>
-                    <ng-template mat-tab-label
-                                 class="main-no-tab-label">
-                    </ng-template>
-
-
-                    <mat-card *ngFor="let item of mediumContent"
-                              class="lorem-ipsum-card">
-                        <app-icon-menu>
-
-                        </app-icon-menu>
-                        <span>
-                            {{item}}
-                        </span>
-                        <img src="assets/images/test/angular.png">
-                    </mat-card>
-                </mat-tab>
-
-                <mat-tab>
-                    <ng-template mat-tab-label
-                                 class="main-no-tab-label">
-                    </ng-template>
-
-                    <cdk-virtual-scroll-viewport autosize
-                                                 class="example-viewport">
-                        <!-- <div *cdkVirtualFor="let item of longContent"> -->
-                        <mat-card *cdkVirtualFor="let item of objContent"
-                                  class="lorem-ipsum-card">
-                            <h3>{{item.id}}</h3>
-                            <app-icon-menu>
-
-                            </app-icon-menu>
-                            <span>
-                                {{item.text}}
-                            </span>
-                            <img src="https://picsum.photos/{{item.imgWidth}}/{{item.imgHeight}}"
-                                 [width]="item.imgWidth"
-                                 [height]="item.imgHeight">
-                        </mat-card>
-                        <!-- </div> -->
-                    </cdk-virtual-scroll-viewport>
-                </mat-tab>
-
-            </mat-tab-group>
+<div style="box-shadow: 0 0 5px red inset;height: 100%;
+width: 100%;
+position: absolute;">
 
 
 
+    <mat-tab-group backgroundColor="accent"
+                   [dynamicHeight]="false"
+                   [selectedIndex]="currentMenuIndex"
+                   animationDuration="210ms"
+                   style="width:100%;height:100%;"
+                   (selectedTabChange)="selectedTabChange($event)">
 
-        </div>
-    </div>
-    <div class="main-menu-buttons">
-        <button (click)="expand('main')"
-                mat-button
-                class="main-menu-button">
-            <i class="fa fa-bars">
-            </i>
-        </button>
-        <mat-divider>
-
-        </mat-divider>
-        <button (click)="expand('user')"
-                mat-button
-                class="main-menu-button">
-            <i class="fa fa-user">
-            </i>
-        </button>
-
-        <button (click)="expand('starred')"
-                mat-button
-                class="main-menu-button">
-            <i class="far fa-star">
-            </i>
-        </button>
-        <button (click)="expand('messages')"
-                mat-button
-                class="main-menu-button">
-            <i matBadge="7"
-               matBadgeColor="warn"
-               class="far fa-comment">
-            </i>
-        </button>
-
-        <div class="divider">
-
-        </div>
-        <button (click)="expand('warnings')"
-                mat-button
-                class="main-menu-button">
-            <i matBadge="99+"
-               matBadgeColor="warn"
-               class="far fa-bell">
-            </i>
-        </button>
-        <mat-divider>
-
-        </mat-divider>
-        <button (click)="expand('settings')"
-                mat-button
-                class="main-menu-button">
-            <i class="fa fa-cog">
-            </i>
-        </button>
-    </div>
-
-</div>
-<div [@toggleMainMenuMask]="animationState"
-     (click)="expand(null)"
-     class="main-menu-mask">
-</div>
-
-
-<div class="main-container">
-    <mat-toolbar color="primary"
-                 class="main-container-toolbar">
-        <span>Welcome to {{ title }}!</span>
-    </mat-toolbar>
-    <mat-toolbar>
-        <span>
-            Buttons
-        </span>
-    </mat-toolbar>
-
-    <mat-tab-group>
-        <mat-tab label="Raised Buttons">
-
-            <mat-card>
-                <div class="button-row">
-                    <button mat-raised-button>
-                        Basic
-                    </button>
-                    <button mat-raised-button
-                            color="primary">
-                        Primary
-                    </button>
-                    <button mat-raised-button
-                            color="accent">
-                        Accent
-                    </button>
-                    <button mat-raised-button
-                            color="warn">
-                        Warn
-                    </button>
-                    <button mat-raised-button
-                            disabled>
-                        Disabled
-                    </button>
-                    <a mat-raised-button
-                       routerLink=".">
-                        Link
-                    </a>
-                </div>
-            </mat-card>
-
+        <mat-tab>
+            <ng-template mat-tab-label
+                         class="main-no-tab-label">
+            </ng-template>
+            Lorem
         </mat-tab>
 
-        <mat-tab label="Basic Buttons">
+        <mat-tab>
+            <ng-template mat-tab-label
+                         class="main-no-tab-label">
+            </ng-template>
+            <!-- *ngIf="listShowed" -->
+            <ng-template matTabContent>
+                <cdk-virtual-scroll-viewport autosize
+                                             style="height: 100%;background: lightcoral;">
+                    <div *cdkVirtualFor="let item of objContent; templateCacheSize: 0"
+                         style="padding:30px;padding-bottom: 0;">
+                        <mat-card class="lorem-ipsum-card"
+                                  style="">
+                            <mat-card-header>
+                                <div mat-card-avatar>
+                                    <img mat-card-image
+                                         src="https://picsum.photos/{{item.avatarWidth}}/{{item.avatarHeight}}"
+                                         [attr.alt]="item.subtitle">
+                                </div>
+                                <mat-card-title>
+                                    {{item.id}}.
+                                    {{item.title | titlecase}}
+                                </mat-card-title>
+                                <mat-card-subtitle>
+                                    {{item.subtitle}}
+                                </mat-card-subtitle>
+                            </mat-card-header>
 
-            <mat-card>
-                <div class="button-row">
-                    <button mat-button>Basic</button>
-                    <button mat-button
-                            color="primary">Primary</button>
-                    <button mat-button
-                            color="accent">Accent</button>
-                    <button mat-button
-                            color="warn">Warn</button>
-                    <button mat-button
-                            disabled>Disabled</button>
-                    <a mat-button
-                       routerLink=".">Link</a>
-                </div>
-            </mat-card>
+                            <img mat-card-image
+                                 src="https://picsum.photos/{{item.imgWidth}}/{{item.imgHeight}}"
+                                 [attr.alt]="item.subtitle">
+                            <mat-card-content>
+                                <p>
+                                    {{item.text}}
+                                </p>
+                            </mat-card-content>
+                            <!-- <img src="https://picsum.photos/{{item.imgWidth}}/{{item.imgHeight}}"
+                                 [width]="item.imgWidth"
+                                 [height]="item.imgHeight"> -->
+                            <mat-card-actions>
+                                <button mat-button>LIKE</button>
+                                <button mat-button>SHARE</button>
+                            </mat-card-actions>
+                        </mat-card>
+                    </div>
+                </cdk-virtual-scroll-viewport>
 
+            </ng-template>
         </mat-tab>
     </mat-tab-group>
 
-
-    <mat-toolbar>
-        <span>Form Fields</span>
-    </mat-toolbar>
-
-    <mat-form-field class="example-full-width">
-        <input [attr.name]="'asd'"
-               matInput
-               placeholder="Favorite food"
-               value="Sushi">
-    </mat-form-field>
-
-    <i class="fa fa-arrows-alt">
-    </i>
+    <!-- <div *ngFor="let i of objContent">
+        <h1>{{i.id}}</h1>
+        {{i.text}}
+        <hr>
+    </div> -->
 
 
-
-    <!-- <mat-icon svgIcon="app-icon-list"></mat-icon> -->
-
-    <mat-card *ngFor="let item of longContent"
-              class="lorem-ipsum-card">
-        <app-icon-list></app-icon-list>
-        {{item}}
-    </mat-card>
 </div>

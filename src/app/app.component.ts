@@ -36,23 +36,36 @@ export class AppComponent implements OnInit {
 
     public objContent: any[];
 
+    public listShowed: boolean = false;
+
 
 
     public ngOnInit(): void {
+        const loremIpsum: string = `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+        laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+        cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`;
+        const loremIpsumWords: string[] = loremIpsum
+            .replace(/[,\.]/g, '')
+            .split(' ')
+            .filter(w => w.trim() !== '');
+
         this.objContent = Array
-        .from({ length: 80 }, (v, k) => {            
-            return {
-                id: k + 1,
-                text: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-                voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. 
-                ${Array.from({ length: +(Math.random()*100).toFixed()}, () => `RTYRYRY `).toString()}`,
-                imgWidth: 100 + +(Math.random()*100).toFixed(),
-                imgHeight: 50 + +(Math.random()*100).toFixed()
-            };
-        });
+            .from({ length: 40 }, (v, k) => {
+                return {
+                    id: k + 1,
+                    title: Array.from({ length: 1 + +(Math.random() * 7).toFixed() }, () => 
+                        loremIpsumWords[1+ +(Math.random() * (loremIpsumWords.length - 1)).toFixed()]).join(' '),
+                    subtitle: Array.from({ length: 9 + +(Math.random() * 24).toFixed() }, () => 
+                        loremIpsumWords[1+ +(Math.random() * (loremIpsumWords.length - 1)).toFixed()]).join(' '),
+                    text: Array.from({ length: 1 + +(Math.random() * 10).toFixed() }, () => loremIpsum).join(' '),
+                    imgWidth: 200 + +(Math.random() * 100).toFixed(),
+                    imgHeight: 80 + +(Math.random() * 100).toFixed(),
+                    avatarWidth: 50 + +(Math.random() * 100).toFixed(),
+                    avatarHeight: 50 + +(Math.random() * 100).toFixed()
+                };
+            });
 
 
         this.longContent = Array
@@ -62,7 +75,7 @@ export class AppComponent implements OnInit {
          laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
          voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
          cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. 
-         ${Array.from({ length: +(Math.random()*100).toFixed()}, () => `RTYRYRY `).toString()}`);
+         ${Array.from({ length: +(Math.random() * 100).toFixed() }, () => `RTYRYRY `).toString()}`);
 
         this.mediumContent = Array
             .from({ length: 77 }, () =>
@@ -71,12 +84,12 @@ export class AppComponent implements OnInit {
       laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
       voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
       cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. 
-      ${Array.from({ length: +(Math.random()*100).toFixed()}, () => `QW `).toString()}`);
+      ${Array.from({ length: +(Math.random() * 100).toFixed() }, () => `QW `).toString()}`);
 
     }
 
     public expand(item: string): void {
-        if(item === null || item === this._currentMenu) {
+        if (item === null || item === this._currentMenu) {
             this._currentMenu = null;
             this.animationState = 'hide';
         } else {
@@ -85,7 +98,7 @@ export class AppComponent implements OnInit {
             this.currentMenuIndex = ['main', 'user', 'starred'].indexOf(item);
         }
         // console.log(66, item);
-        
+
 
         // this.animationState = this.animationState === 'show' ? 'hide' : 'show';
     }
@@ -112,6 +125,12 @@ export class AppComponent implements OnInit {
             = e.toState === 'show'
                 ? 'hidden'
                 : 'scroll';
+    }
+
+    public selectedTabChange(e: any): void {
+        // if(e.index === 1) {
+        //     this.listShowed = true;
+        // }
     }
 
 }
