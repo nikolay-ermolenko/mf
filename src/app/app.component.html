@@ -13,14 +13,17 @@ position: absolute;">
 
         <mat-tab>
             <ng-template mat-tab-label
-                         class="main-no-tab-label">
+                         class="main-no-tab-label2">
+                         <i class="fa fa-cogs" style="font-size:1.8em;line-height:150;"></i> 
+                         
             </ng-template>
             Lorem
         </mat-tab>
 
         <mat-tab>
             <ng-template mat-tab-label
-                         class="main-no-tab-label">
+                         class="main-no-tab-label2">
+                         <i class="fa fa-image" style="font-size:1.8em;line-height:150;"></i> 
             </ng-template>
             <!-- *ngIf="listShowed" -->
             <ng-template matTabContent>
@@ -34,6 +37,8 @@ position: absolute;">
                                   style="">
                             <mat-card-header>
                                 <div mat-card-avatar>
+
+                                   
                                     <img mat-card-image
                                          src="https://picsum.photos/{{item.avatarWidth}}/{{item.avatarHeight}}"
                                          [attr.alt]="item.subtitle">
@@ -46,10 +51,18 @@ position: absolute;">
                                     {{item.subtitle}}
                                 </mat-card-subtitle>
                             </mat-card-header>
+                            <div style="width:100%;height:200px;">
+                                    <img mat-card-image
+                                    style="height:100%;"
+                                    src="https://picsum.photos/{{item.imgWidth}}/{{item.imgHeight}}"
+                                    [attr.alt]="item.subtitle">
+                            </div>
 
+
+<!--                             
                             <img mat-card-image
                                  src="https://picsum.photos/{{item.imgWidth}}/{{item.imgHeight}}"
-                                 [attr.alt]="item.subtitle">
+                                 [attr.alt]="item.subtitle"> -->
                             <mat-card-content>
                                 <p>
                                     {{item.text}}

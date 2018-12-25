@@ -107,7 +107,7 @@ export class AppComponent implements OnInit {
                         loremIpsumWords[1+ +(Math.random() * (loremIpsumWords.length - 1)).toFixed()]).join(' '),
                     subtitle: Array.from({ length: 9 + +(Math.random() * 24).toFixed() }, () => 
                         loremIpsumWords[1+ +(Math.random() * (loremIpsumWords.length - 1)).toFixed()]).join(' '),
-                    text: Array.from({ length: 1 + +(Math.random() * 10).toFixed() }, () => loremIpsum).join(' '),
+                    text: Array.from({ length: 1 + +(Math.random() * 4).toFixed() }, () => loremIpsum).join(' '),
                     imgWidth: 80 + +(Math.random() * 100).toFixed(),
                     imgHeight: 10 + +(Math.random() * 100).toFixed(),
                     avatarWidth: 1 + +(Math.random() * 100).toFixed(),
