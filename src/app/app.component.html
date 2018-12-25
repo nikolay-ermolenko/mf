@@ -25,6 +25,8 @@ position: absolute;">
             <!-- *ngIf="listShowed" -->
             <ng-template matTabContent>
                 <cdk-virtual-scroll-viewport autosize
+                                             appInfiniteScroller
+                                             (onInfiniteScrollerTrashHold)="appInfiniteScroller($event)"
                                              style="height: 100%;background: lightcoral;">
                     <div *cdkVirtualFor="let item of objContent; templateCacheSize: 0"
                          style="padding:30px;padding-bottom: 0;">

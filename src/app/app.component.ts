@@ -38,54 +38,8 @@ export class AppComponent implements OnInit {
 
     public listShowed: boolean = false;
 
-
-
     public ngOnInit(): void {
-        const loremIpsum: string = `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-        laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-        cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`;
-        const loremIpsumWords: string[] = loremIpsum
-            .replace(/[,\.]/g, '')
-            .split(' ')
-            .filter(w => w.trim() !== '');
-
-        this.objContent = Array
-            .from({ length: 40 }, (v, k) => {
-                return {
-                    id: k + 1,
-                    title: Array.from({ length: 1 + +(Math.random() * 7).toFixed() }, () => 
-                        loremIpsumWords[1+ +(Math.random() * (loremIpsumWords.length - 1)).toFixed()]).join(' '),
-                    subtitle: Array.from({ length: 9 + +(Math.random() * 24).toFixed() }, () => 
-                        loremIpsumWords[1+ +(Math.random() * (loremIpsumWords.length - 1)).toFixed()]).join(' '),
-                    text: Array.from({ length: 1 + +(Math.random() * 10).toFixed() }, () => loremIpsum).join(' '),
-                    imgWidth: 200 + +(Math.random() * 100).toFixed(),
-                    imgHeight: 80 + +(Math.random() * 100).toFixed(),
-                    avatarWidth: 50 + +(Math.random() * 100).toFixed(),
-                    avatarHeight: 50 + +(Math.random() * 100).toFixed()
-                };
-            });
-
-
-        this.longContent = Array
-            .from({ length: 200 }, () =>
-                `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-         labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-         laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-         voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-         cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. 
-         ${Array.from({ length: +(Math.random() * 100).toFixed() }, () => `RTYRYRY `).toString()}`);
-
-        this.mediumContent = Array
-            .from({ length: 77 }, () =>
-                `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-      labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-      laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-      voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-      cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. 
-      ${Array.from({ length: +(Math.random() * 100).toFixed() }, () => `QW `).toString()}`);
-
+        this.objContent = this._generate(0);
     }
 
     public expand(item: string): void {
@@ -97,10 +51,6 @@ export class AppComponent implements OnInit {
             this.animationState = 'show'
             this.currentMenuIndex = ['main', 'user', 'starred'].indexOf(item);
         }
-        // console.log(66, item);
-
-
-        // this.animationState = this.animationState === 'show' ? 'hide' : 'show';
     }
 
     public toggleMainMenuStart(e: any): void {
@@ -133,4 +83,37 @@ export class AppComponent implements OnInit {
         // }
     }
 
+    public appInfiniteScroller(e: any): void {
+        this.objContent = this.objContent.concat(this._generate(this.objContent.length));
+    }
+
+
+    private _generate(lastId: number): any[] {
+        const loremIpsum: string = `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+        laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+        cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`;
+        const loremIpsumWords: string[] = loremIpsum
+            .replace(/[,\.]/g, '')
+            .split(' ')
+            .filter(w => w.trim() !== '');
+
+        return Array
+            .from({ length: 25 }, (v, k) => {
+                return {
+                    id: lastId + k + 1,
+                    title: Array.from({ length: 1 + +(Math.random() * 7).toFixed() }, () => 
+                        loremIpsumWords[1+ +(Math.random() * (loremIpsumWords.length - 1)).toFixed()]).join(' '),
+                    subtitle: Array.from({ length: 9 + +(Math.random() * 24).toFixed() }, () => 
+                        loremIpsumWords[1+ +(Math.random() * (loremIpsumWords.length - 1)).toFixed()]).join(' '),
+                    text: Array.from({ length: 1 + +(Math.random() * 10).toFixed() }, () => loremIpsum).join(' '),
+                    imgWidth: 80 + +(Math.random() * 100).toFixed(),
+                    imgHeight: 10 + +(Math.random() * 100).toFixed(),
+                    avatarWidth: 1 + +(Math.random() * 100).toFixed(),
+                    avatarHeight: 1 + +(Math.random() * 100).toFixed()
+                };
+            });
+
+    }
 }

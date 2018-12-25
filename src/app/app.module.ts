@@ -15,6 +15,7 @@ import { FormsModule } from '@angular/forms';
 import { IconMenuComponent, IconListComponent } from './entities/icons';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import {ScrollingModule as ExperimentalScrollingModule} from '@angular/cdk-experimental/scrolling';
+import { InfiniteScrollerDirective } from './directives/infinite-scroll.directive';
 
 @NgModule({
     imports: [
@@ -40,7 +41,8 @@ import {ScrollingModule as ExperimentalScrollingModule} from '@angular/cdk-exper
     declarations: [
         AppComponent,
         IconMenuComponent,
-        IconListComponent
+        IconListComponent,
+        InfiniteScrollerDirective
     ],
     bootstrap: [AppComponent]
 })
