@@ -21,19 +21,14 @@ export class InfiniteScrollerDirective implements AfterViewInit {
         this._scrollEvent$ = fromEvent(this._elm.nativeElement, 'scroll');
 
         this._scrollEvent$
-        .pipe (
-            map((e:any) => e.target),
-            debounceTime(550)
-        )
-        .subscribe((t: any) => {
-            
-            if (/*!this._isRequest && */(t.scrollHeight * .8) < t.scrollTop) {
-                console.log(88, t.scrollHeight, t.scrollTop);
-
-                this.someEvent.emit(77);
-                // this._isRequest = true;
-            }
-
-        });
+            .pipe(
+                map((e: any) => e.target),
+                debounceTime(100)
+            )
+            .subscribe((t: any) => {
+                if (t.scrollHeight - t.scrollTop < t.clientHeight * 1.5) {
+                    this.someEvent.emit(77);
+                }
+            });
     }
 }
