@@ -1,0 +1,76 @@
+:host {
+  &.menu-center {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    .main-menu-mask {
+      z-index: 1000;
+    }
+    .main-menu {
+      z-index: 1000;
+    }
+  }
+  .main-menu {
+    display: flex;
+    position: fixed;
+    background: #eee;
+    z-index: 999;
+  }
+  .menu-position-center {
+    position: fixed;
+    width: 40%;
+    height: 40%;
+    box-shadow: 0 0 5px #999, 0 12px 41px -14px black;
+  }
+  .menu-position-left {
+    top: 0;
+    left: 0;
+    width: 80%;
+    height: calc(100% + 100px);
+    min-width: 60px;
+    max-width: 800px;
+    flex-direction: column;
+    box-shadow: 0 0 5px #999, 0 -13px 41px 0px black;
+  }
+  .menu-position-right {
+    top: 0;
+    right: 0;
+    width: 80%;
+    height: calc(100% + 100px);
+    min-width: 60px;
+    max-width: 800px;
+    flex-direction: column;
+    box-shadow: 0 0 5px #999, 0 13px 41px 0px black;
+  }
+  .menu-position-top {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70%;
+    min-height: 60px;
+    max-height: 600px;
+    box-shadow: 0 0 5px #999, 0 0 41px 0px black;
+  }
+  .menu-position-bottom {
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 70%;
+    min-height: 60px;
+    max-height: 600px;
+    box-shadow: 0 0 5px #666, 0 7px 41px 0px black;
+  }
+  .main-menu-mask {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: calc(100% + 100px);
+    background: white;
+    z-index: 999;
+    opacity: .4;
+  }
+}

@@ -1,0 +1,11 @@
+<div *ngIf="allowMask"
+     [@toggleMainMenuMask]="getMaskAnimationState()"
+     (click)="toggleExpanded(false)"
+     class="main-menu-mask">
+</div>
+<div [class]="getMenuClass()"
+     [@toggleMainMenu]="getAnimationState()">
+    <ng-content>
+
+    </ng-content>
+</div>
